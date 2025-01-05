@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import pic from '../assets/ABout.jpg'
+import pic from '../assets/aboutus.jpg'
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
+  const { t } = useTranslation();
   const [fadeIn, setFadeIn] = useState(false);
   const sectionRef = useRef(null);
 
@@ -24,36 +26,35 @@ const About = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-gray-100 py-32 px-6 min-h-[70vh] flex items-center">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-        
-        <div className={`transition-opacity duration-700 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}>
-          <h2 className="text-4xl font-bold mb-6">About Us</h2>
+    <section ref={sectionRef} className="bg-gray-100 py-16 px-6 min-h-[20vh] flex items-center">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+        <div className={`transition-opacity duration-50 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}>
+          <h2 className="text-4xl font-bold mb-6">{t('About Us')}</h2>
           <h3 className="text-2xl text-gray-700">
-            Qualities & Expertise of Karar Trading Co LLC.
+            {t('Qualities & Expertise of Karar Trading Co LLC.')}
           </h3>
-          <p className="text-gray-600 leading-relaxed mt-4 text-sm">
-          At Karar Trading Co LLC, we pride ourselves on our commitment to quality and reliability. All our products are sourced from reputed manufacturers who adhere to international standards, ensuring durability and performance in the most demanding environments. With a strong focus on customer satisfaction, we provide tailor-made solutions to meet specific project requirements, along with timely delivery and exceptional after-sales support. Our team of experts brings years of industry experience, offering technical guidance to help you select the right products for your application. Whether you’re looking for specialized fittings or bulk supplies, we are here to provide efficient and cost-effective solutions.Choose Heed Steel Pakistan Co. for all your stainless & carbon steel needs and experience unmatched service and product excellence.
-          </p>
+          <p className="text-gray-600 leading-relaxed mt-4">
+            {t('Welcome to Karar Trading Co. LLC – a name synonymous with 35 years of excellence in the steel industry. As the UAE’s leading importer and stockist, we are proud to be a trusted partner for industries across the Middle East and beyond. Our extensive inventory is sourced from globally renowned manufacturers in Europe, Japan, the USA, South Korea, and China, ensuring superior quality and performance.')}          </p>
         </div>
 
-        <div className={`transition-opacity duration-700 delay-200 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}>
-          <p className="text-gray-600 leading-relaxed">
-          At Karar Trading Co LLC, we pride ourselves on our commitment to quality and reliability. All our products are sourced from reputed manufacturers who adhere to international standards, ensuring durability and performance in the most demanding environments. With a strong focus on customer satisfaction, we provide tailor-made solutions to meet specific project requirements, along with timely delivery and exceptional after-sales support. Our team of experts brings years of industry experience, offering technical guidance to help you select the right products for your application. Whether you’re looking for specialized fittings or bulk supplies, we are here to provide efficient and cost-effective solutions.Choose Heed Steel Pakistan Co. for all your stainless & carbon steel needs and experience unmatched service and product excellence.
+        <div className={`transition-opacity duration-50  ${fadeIn ? 'opacity-100' : 'opacity-0'}`}>
+          <p className="text-gray-600 leading-relaxed ">
+            {t('For over three decades, we have been at the forefront of serving critical sectors such as oil and gas, fertilizers, textiles, marine, offshore, and manufacturing. Our comprehensive product range includes premium stainless steel, carbon steel, and alloy steel pipes, fittings, flanges, valves, gaskets, and fasteners, designed to meet the most stringent industrial demands. Our reputation is built on reliability and responsiveness. We not only fulfill urgent material needs within the Middle East but also extend our services to South East Asia and other regions with seamless export solutions from our ready-to-ship stock.')}
           </p>
           <Link
             to="/product"
             className="mt-6 inline-block bg-[#19418c] text-white py-2 px-4 rounded-md hover:bg-[#19418c]/90"
           >
-            View Products
+            {t('View Products')}
           </Link>
         </div>
 
-        <div className={`transition-opacity duration-700 delay-400 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`transition-opacity duration-50 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}>
           <img
-          src={pic}
+            src={pic}
             alt="Refineries"
-            className="rounded-lg shadow-lg h-full w-full"
+            className="rounded-lg shadow-lg w-full h-full"
           />
         </div>
       </div>

@@ -1,58 +1,88 @@
 import React from 'react';
-import { FaDatabase } from 'react-icons/fa';
-import { MdTipsAndUpdates } from "react-icons/md";
-import { SlCalender } from "react-icons/sl";
-import { FaTasks } from "react-icons/fa";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
+import Card1 from '../assets/Card1.jpg';
+import Card2 from '../assets/Card2.jpg';
+import Card3 from '../assets/Card3.jpg';
+import Card4 from '../assets/Card4.jpg';
 
 const Progress = () => {
+  const settings = {
+    dots: true, // Show navigation dots
+    infinite: true, // Infinite looping
+    speed: 500, // Transition speed
+    slidesToShow: 3, // Number of slides visible at a time
+    slidesToScroll: 1, // Number of slides to scroll
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 3000, // Autoplay interval
+    responsive: [
+      {
+        breakpoint: 1024, // For devices smaller than 1024px
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768, // For devices smaller than 768px
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false, // Remove arrows for cleaner mobile view
+        },
+      },
+      {
+        breakpoint: 480, // For devices smaller than 480px (extra small screens)
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false, // Remove dots for very small screens
+        },
+      },
+    ],
+  };
+
   return (
-    <div className='w-full py-16 text-white px-8 primary'>
-      <div className='grid xl:grid-cols-4 px-48 lg:grid-cols-4 px-48 md:grid-cols-2 sm:grid-cols-1 gap-12 py-16 justify-center items-center'>
-        
-        {/* First Item */}
-        <div className='flex items-center gap-6 justify-center'>
-          <FaDatabase className='w-24 h-24' />
-          <div className='text-left'>
-            <div className='text-2xl font-bold leading-none'>40,000+</div>
-            <div className='text-sm font-medium mt-2'>
-              Metric Tons Stock on <br /> Ground
-            </div>
+    <div className='w-full pb-24 bg-gray-100'>
+      <div className='px-4 sm:px-8 md:px-16 lg:px-32'>
+        <Slider {...settings}>
+          {/* First Item */}
+          <div className='flex justify-center p-4'>
+            <img
+              src={Card1}
+              alt='Card 1'
+              className='rounded-lg shadow-lg transform transition duration-500 hover:scale-105'
+            />
           </div>
-        </div>
 
-        {/* Second Item */}
-        <div className='flex items-center gap-6 justify-center'>
-          <MdTipsAndUpdates className='w-24 h-24' />
-          <div className='text-left'>
-            <div className='text-2xl font-bold leading-none'>1 Million+</div>
-            <div className='text-sm font-medium mt-2'>
-              Sq ft Stocking <br /> Facility
-            </div>
+          {/* Second Item */}
+          <div className='flex justify-center p-4'>
+            <img
+              src={Card2}
+              alt='Card 2'
+              className='rounded-lg shadow-lg transform transition duration-500 hover:scale-105'
+            />
           </div>
-        </div>
 
-        {/* Third Item */}
-        <div className='flex items-center gap-6 justify-center'>
-          <SlCalender className='w-24 h-24' />
-          <div className='text-left'>
-            <div className='text-2xl font-bold leading-none'>30+</div>
-            <div className='text-sm font-medium mt-2'>
-              Years of Piping <br /> Experience
-            </div>
+          {/* Third Item */}
+          <div className='flex justify-center p-4'>
+            <img
+              src={Card3}
+              alt='Card 3'
+              className='rounded-lg shadow-lg transform transition duration-500 hover:scale-105'
+            />
           </div>
-        </div>
 
-        {/* Fourth Item */}
-        <div className='flex items-center gap-6 justify-center'>
-          <FaTasks className='w-24 h-24' />
-          <div className='text-left'>
-            <div className='text-2xl font-bold leading-none'>25 Million+</div>
-            <div className='text-sm font-medium mt-2'>
-              Kilometers Pipes <br /> Delivered
-            </div>
+          {/* Fourth Item */}
+          <div className='flex justify-center p-4'>
+            <img
+              src={Card4}
+              alt='Card 4'
+              className='rounded-lg shadow-lg transform transition duration-500 hover:scale-105'
+            />
           </div>
-        </div>
-
+        </Slider>
       </div>
     </div>
   );
